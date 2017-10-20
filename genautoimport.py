@@ -21,7 +21,7 @@ def arguments():
     args = parser.parse_args()
     return args.user, args.password, args.host, args.port, args.pprg, args.path, args.test
 
-def auto_dict(lead):
+def auto_dict(pprg, lead):
     """
     AutoImport Field Names and Order:
 
@@ -59,6 +59,8 @@ def auto_dict(lead):
     # new_dict["END_DATE"]
     # new_dict["END_TIME"]
     new_dict["BETWCALLS"] = "300"
+    new_dict["PPRG"] = pprg
+    new_dict["PROMO_CODE"] = "{0} - {1}".format(pprg, datetime.datetime.strftime(datetime.datetime.now(), '%d-%m-%Y'))
     return new_dict
 
 
@@ -75,7 +77,7 @@ def main():
         exit()
     auto_format = []
     for lead in leads:
-        auto_format.append(auto_dict(lead))
+        auto_format.append(auto_dict(pprg, lead))
     
     with open(path+import_file, 'w') as csvfile:
         fieldnames = ['AREA_CODE','HOME_PHONE','FIRST_NAME','LAST_NAME','PPRG','ADDRESS','CITY','STATE','ZIP',
