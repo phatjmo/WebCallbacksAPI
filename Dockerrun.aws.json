@@ -1,6 +1,6 @@
 {
     "AWSEBDockerrunVersion": 1,
-    "Name": "stats-api",
+    "Name": "webcallbacksapi",
     "Ports": [{
         "ContainerPort": 4295,
         "hostPort": 4295

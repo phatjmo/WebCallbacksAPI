@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+
+  webcallbackapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.beanstalk
+    ports:
+      - 80:4295
+    mem_limit: 200m

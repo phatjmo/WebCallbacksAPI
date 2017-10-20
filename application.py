@@ -70,7 +70,7 @@ class WebCallbacksAPI(Resource):
         Append Lead to webcallbacks dict by PPRG.
         """
         args = self.reqparse.parse_args()
-        print "Appending leads to {}".format(pprg)
+        print("Appending leads to {}".format(pprg))
         # print args
         if pprg in webcallbacks:
             for lead in args["leads"]:
