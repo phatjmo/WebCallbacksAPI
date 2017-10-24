@@ -74,6 +74,7 @@ def main():
     if resp.status_code == 200:
         leads = resp.json()
     else:
+        print("Request returned false with response: {0} - {1}".format(resp.status_code, resp.reason))
         exit()
     auto_format = []
     for lead in leads:
